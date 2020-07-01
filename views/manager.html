@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>관리자 화면</title>
+
+<style>
+
+input[type=button], input[type=submit], input[type=reset]  {
+    background-color: #56baed;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 20px 20px 10px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+    background-color: #39ace7;
+  }
+  
+  input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+
+#chart{
+
+  text-align: left;
+
+  padding: 0;
+
+  margin-top: -80px;
+
+
+ }
+
+#tag{
+
+ border: 1px solid black;
+
+ width: 100px;
+
+ padding: 0;
+
+ float: right;
+
+ margin-top: -365px;
+
+
+}
+
+#bg{
+
+width: 700px;
+ margin: 0 auto 
+}
+
+#content{
+  margin:0px;
+  border:0px;
+  display: flex;
+
+}
+#can{
+
+  text-align: center;
+  width: 600;
+  }
+
+#can2{
+  text-align: center;
+  width: 100%;
+}
+
+#can3{
+  text-align: center;
+  width: 40%;
+}
+
+
+h1{
+
+ width: 100%;
+
+ text-align: center;
+
+ font-size: 45px;
+
+}
+
+h4{
+
+ margin-top: -135px;
+
+ float: right;
+
+}
+
+p{
+  font-size: 22pt;
+  font-weight: bold;
+  margin:0 auto;
+  padding-left: -10px;
+}
+
+
+</style>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
+<!--/jsapi-->
+
+<script type="text/javascript">
+  google.charts.load("visualization", "1", {packages:["corechart"]}); 
+  google.charts.setOnLoadCallback(drawChart);
+  
+ function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+        //x축값 파란선(주차비) 빨간선(누적금액) y최대값
+      ['주차비', '주차료', '누적주차료'],
+      [,  1000,      1000],
+      [,  500,      1500],
+      [,  2000,       3500],
+      [,  1500,      5000]
+    ]);
+
+    var options = {
+      //title: 'Company Performance'
+      
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+   
+   chart.draw(data, options);
+ 
+  }
+
+ window.onload = function(){
+
+  var canvas = document.getElementById("chart");
+
+  var d = canvas.getContext("2d");
+  
+  var w=600;
+  var h=500;;
+
+  var pad = 100;
+
+  var x = w/2;
+
+  var y = h/2;
+
+
+  var r = Math.min(w-(pad*2), h-(pad*2))/2;
+
+  
+// 차량수 저장, 첫 배열이 주차중 수, 두번째가 빈자리 수
+  var data=[30, 5];
+
+  
+
+  var color = ["#953735","#0070C0",];
+
+  
+
+  var angle = 0;
+
+  var total = 0;
+
+  
+
+  for(var i in data){total+=data[i];}
+
+  for(var i = 0;i<data.length;i++){
+//외곽선 그리기
+   d.strokeStyle="white";
+   d.lineWidth=10;
+   d.stroke();  
+//외곽선 그리기 끝
+
+   d.fillStyle = color[i];
+
+   d.beginPath();
+
+   d.moveTo(x,y);
+
+   d.arc(x,y,r,angle,angle+(Math.PI*2*(data[i]/total)))
+
+   d.lineTo(x,y);
+
+   d.fill();
+  
+
+   angle += Math.PI*2*(data[i]/total);
+
+  }
+  //글자 채우기 
+  /*
+d.font = "bold italic 22pt 나눔고딕";
+d.fillStyle="black"
+d.fillText("주차상태", 190, 310);
+
+d.font = "bold italic 22pt 나눔고딕";
+d.fillText("빈자리",340,225);
+
+d.font = "bold 22pt 나눔고딕";
+d.fillText("주차량 통계분석",190,470);
+*/
+ }
+drawChart();
+</script>
+
+
+</head>
+</head>
+
+<body>
+<!--
+<div id="bg">*/-->
+
+  <h1>관리자
+  <input type="button" class="fadeIn fourth" value="처음으로" onclick="location.href='main_ex.html'">
+</h1>
+<div id="content">
+ 
+  <div id="can">
+  <canvas id="chart" width="600" height="500" style= " margin:0 auto; "  ></canvas>
+  <p>주차량 통계분석</p>
+  </div><!--can 끝-->
+
+  <div id="can2">
+  <div id="chart_div" style="width: 660px; height: 500px; margin: 0 auto" >
+  </div><!-- chart_div 끝-->
+  <p>주차료 매출관리</p>
+</div><!-- can2끝-->
+</div><!--content 끝-->
+ <!--</div>-->
+
+ <!-- 
+ <div id="content">
+   <div id="can3">
+     <p>주차량 통계분석</p>
+   </div>
+
+   <div id="can2">
+     <p>주차료 매출관리</p>
+   </div>
+   -->
+ </div>
+</body>
+
+</html>
+

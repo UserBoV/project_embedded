@@ -1,0 +1,44 @@
+<link href="/main.css" rel="stylesheet" id="bootstrap-css" type="text/css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script type = "text/javascript">
+function go_main_ex(){
+  alert("결제되었습니다. 첫 화면으로 이동합니다.")
+  window.location.href="main_ex.html"
+}
+</script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent2">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <!-- <div class="fadeIn first">
+      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+    </div> -->
+
+    <!-- Login Form -->
+    <form>
+      <p id="one">차량번호</p>
+      <p id="two">000000000</p>
+      <br>
+      <input type="checkbox" name="pay" value="cash">현금
+      <br>
+      <input type="checkbox" name="pay" value="card">카드
+      <br>
+
+      <!-- <input type="submit" class="fadeIn fourth" value="결제완료" 
+      style="margin-left: 120px;" onclick="document.id.action='main_ex.html'">
+      -->
+<div id="test">
+      <input type="button" class="fadeIn fourth" value="결제하기"
+       onclick="return go_main_ex()">
+     
+      </div>
+      </form>
+
+
+  </div>
+</div>

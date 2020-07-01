@@ -1,0 +1,63 @@
+<link href="/main2.css" rel="stylesheet" id="bootstrap-css" type="text/css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script type = "text/javascript">
+function notice_id(){
+  alert("당신의 아이디는 000 입니다.")
+}
+
+function notice_pw(){
+  alert("당신의 비밀번호는 0000 입니다.")
+}
+</script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent3">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <!-- <div class="fadeIn first">
+      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+    </div> -->
+
+    <!-- Login Form -->
+    <form>
+      <p id="one">ID 찾기</p>
+      <input type="text" id="password" class="fadeIn third" name="login" placeholder="전화번호 입력">
+      <input type="submit" class="fadeIn fourth" value="찾기" onclick="return notice_id()">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="manager_login.html">로그인하기</a>
+    </div>
+
+
+  </div>
+</div>
+
+<div class="wrapper fadeInDown">
+  <div id="formContent3">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <!-- <div class="fadeIn first">
+      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+    </div> -->
+
+    <!-- Login Form -->
+    <form>
+      <p id="one">PASSWARD 찾기</p>
+      <input type="text" id="password" class="fadeIn third" name="login" placeholder="ID 입력">
+      <input type="text" id="password" class="fadeIn third" name="login" placeholder="전화번호 입력">
+      <input type="submit" class="fadeIn fourth" value="찾기" onclick="return notice_pw()">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="manager_login.html">로그인하기</a>
+    </div>
+
+  </div>
+</div>
